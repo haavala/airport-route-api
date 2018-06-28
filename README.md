@@ -12,13 +12,13 @@ With docker:
 
 		$ docker-compose up
 
-Run in with local node.js:
+Run it with local node.js:
 
 		$ docker run --publish=7474:7474 --publish=7687:7687 --env NEO4J_AUTH=none -v $PWD/import:/var/lib/neo4j/import -v $PWD/data:/data -v $PWD/logs:/logs neo4j
 
 		$ npm run local-start
 
-Call the API:
+Call the HTTP API:
 
 		$ curl "http://localhost:3000/routes?from=TLL&to=TAY"		
 
@@ -113,8 +113,11 @@ Calculate distances:
 ## Additional links
 
 [Neo4j match clause](https://neo4j.com/docs/developer-manual/current/cypher/clauses/match/)
+
 [Neo4j spatial functions](https://neo4j.com/docs/developer-manual/current/cypher/functions/spatial/)
+
 [openflight.org](https://openflights.org/data.html)
+
 
 
                                                                                                                                          
