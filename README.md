@@ -18,9 +18,12 @@ Run it with local node.js:
 
 		$ npm run local-start
 
+Neo4j browser is here: http://localhost:7474/browser/
+
 Call the HTTP API:
 
 		$ curl "http://localhost:3000/routes?from=TLL&to=TAY"		
+
 
 Sample response:
 
