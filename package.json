@@ -14,7 +14,7 @@
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "search": "npm run local-run-config && npm run build-ts && node dist/scripts/search.js",
-    "paths": "npm run local-run-config && npm run build-ts && node --max-old-space-size=3096 dist/scripts/paths.js"
+    "paths": "npm run local-run-config && npm run build-ts && node dist/scripts/paths.js"
   },
   "keywords": [
     "airports",
