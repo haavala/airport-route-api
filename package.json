@@ -14,7 +14,7 @@
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "search": "npm run local-run-config && npm run build-ts && node dist/scripts/search.js",
-    "paths": "npm run local-run-config && npm run build-ts && node dist/scripts/paths.js"
+    "calc-distances": "npm run local-run-config && npm run build-ts && node  dist/scripts/paths.js"
   },
   "keywords": [
     "airports",
