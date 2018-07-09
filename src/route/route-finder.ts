@@ -8,6 +8,9 @@ export class RouteFinder {
             .then((data) => {
                 return mapAll(data.records)
             })
+            .then((routes) =>  {
+                return routes.sort((r1, r2) => { return r1.totalDistance - r2.totalDistance })
+            })
             .then((segments) => {
                 return new RouteResponse(segments)
             })

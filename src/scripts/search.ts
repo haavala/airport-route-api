@@ -1,6 +1,6 @@
 import { RouteFinder } from "../route/route-finder";
 
-new RouteFinder().find('TLL', 'TAY')
+new RouteFinder().find('TLL', 'BCN')
     .then((result) => {
         console.log(JSON.stringify(result, null, 2))
     })

@@ -46,3 +46,20 @@ CREATE (a)-[:DISTANCE_WITHIN {distance: line[2]}]->(b);
 
 // Create index for distance property
 CREATE INDEX ON :DISTANCE_WITHIN(distance);
+
+// Add flight distance property to routes
+MATCH (origin:Airport)-[d:DEPARTS]->(:Route)-[:ARRIVES]->(destination:Airport) 
+SET d.flight_distance = distance(
+    point(
+        { 
+            longitude: toFloat(origin.longitude), 
+            latitude: toFloat(origin.latitute) 
+        }
+    ), 
+    point(
+        { 
+            longitude: toFloat(destination.longitude), 
+            latitude: toFloat(destination.latitute)
+        }
+    )
+);

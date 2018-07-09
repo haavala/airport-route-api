@@ -17,7 +17,8 @@ const getFlightSegment = (el: any): RouteSegment => {
     return {
         type: SegmentType.FLIGHT,
         origin : el.start.properties.iata,
-        destination: el.end.properties.destination
+        destination: el.end.properties.destination,
+        distance : el.relationship.properties.flight_distance
     }
 }
 
@@ -33,6 +34,7 @@ const getAlternativeSegment = (el: any): RouteSegment => {
 export function mapAll(nodes: any[]): Route[] {
     return nodes
             .map((record: any) => new Route(map(record.get(0))))
+            .map((route: Route) => route.withTotalDistance())
             .filter((route) => route.segments.length > 0)
 }
 

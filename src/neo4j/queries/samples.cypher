@@ -107,3 +107,58 @@ RETURN p
 MATCH (a:Airport),(b:Airport)
 WHERE NOT a = b
 MERGE (a)-[:DISTANCE { distance: distance(point({ longitude: toFloat(a.longitude), latitude: toFloat(a.latitute) }), point({ longitude: toFloat(b.longitude), latitude: toFloat(b.latitute) })) }]->(b)
+
+MATCH (origin:Airport)-[:DEPARTS]->(n:Route)-[:ARRIVES]->(destination:Airport) 
+WHERE origin.iata = 'TAY'
+RETURN * LIMIT 25
+
+MATCH (origin:Airport)-[:DEPARTS]->(n:Route)-[:ARRIVES]->(destination:Airport) 
+WHERE origin.iata = 'TAY'
+SET n.test = distance(
+    point(
+        { 
+            longitude: toFloat(origin.longitude), 
+            latitude: toFloat(origin.latitute) 
+        }
+    ), 
+    point(
+        { 
+            longitude: toFloat(destination.longitude), 
+            latitude: toFloat(destination.latitute)
+        }
+    )
+)
+
+MATCH (origin:Airport)-[:DEPARTS]->(n:Route)-[:ARRIVES]->(destination:Airport) 
+SET n.flight_distance = distance(
+    point(
+        { 
+            longitude: toFloat(origin.longitude), 
+            latitude: toFloat(origin.latitute) 
+        }
+    ), 
+    point(
+        { 
+            longitude: toFloat(destination.longitude), 
+            latitude: toFloat(destination.latitute)
+        }
+    )
+)
+
+
+MATCH (origin:Airport)-[d:DEPARTS]->(:Route)-[:ARRIVES]->(destination:Airport) 
+SET d.flight_distance = distance(
+    point(
+        { 
+            longitude: toFloat(origin.longitude), 
+            latitude: toFloat(origin.latitute) 
+        }
+    ), 
+    point(
+        { 
+            longitude: toFloat(destination.longitude), 
+            latitude: toFloat(destination.latitute)
+        }
+    )
+)
+
