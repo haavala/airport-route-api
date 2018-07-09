@@ -24,7 +24,7 @@ Call the HTTP API:
 
 		$ curl "http://localhost:3000/routes?from=TLL&to=TAY"		
 
-Possible routes are sorted by total distance.
+Possible routes are sorted by total distance. By default it returns only the route with shortes total distance. The additional parameter "&limit=n" allows to specify the number of results.
 
 Sample response:
 

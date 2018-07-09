@@ -16,8 +16,11 @@ app.get('/routes', function (request, response) {
 	console.log(request.query)
 	let from = request.query.from
 	let to = request.query.to
+	let limit = request.query.limit || 1
 
-	routeFinder.find(from, to)
+	console.log(limit)
+
+	routeFinder.find(from, to, limit)
 		.then((res) => response.send(JSON.stringify(res)))
 		.catch((err) => {
 			response.status(400).end(err)
