@@ -16,7 +16,7 @@ Run it with local node.js:
 
 		$ docker run --publish=7474:7474 --publish=7687:7687 --env NEO4J_AUTH=none -v $PWD/import:/var/lib/neo4j/import -v $PWD/data:/data -v $PWD/logs:/logs neo4j
 
-		$ npm run local-start
+		$ export NEO4J_HOST=localhost && npm run start
 
 Neo4j browser is here: http://localhost:7474/browser/
 
@@ -24,6 +24,7 @@ Call the HTTP API:
 
 		$ curl "http://localhost:3000/routes?from=TLL&to=TAY"		
 
+Possible routes are sorted by total distance.
 
 Sample response:
 
@@ -33,37 +34,128 @@ Sample response:
     {
       "segments": [
         {
-          "type": "ALTERNATIVE",
+          "type": "FLIGHT",
           "origin": "TLL",
-          "destination": "HEM",
-          "distance": 94386.93566698617
-        },
-        {
-          "type": "ALTERNATIVE",
-          "origin": "HEM",
           "destination": "HEL",
-          "distance": 8234.251664196752
+          "distance": 100885.66230018
         },
         {
           "type": "FLIGHT",
           "origin": "HEL",
-          "destination": "TAY"
+          "destination": "TAY",
+          "distance": 244270.39073097
         }
-      ]
+      ],
+      "totalDistance": 345156.05303115
     },
     {
       "segments": [
         {
           "type": "FLIGHT",
           "origin": "TLL",
-          "destination": "HEL"
+          "destination": "HEL",
+          "distance": 100885.66230018
         },
         {
           "type": "FLIGHT",
           "origin": "HEL",
-          "destination": "TAY"
+          "destination": "TAY",
+          "distance": 244270.39073097
         }
-      ]
+      ],
+      "totalDistance": 345156.05303115
+    },
+    {
+      "segments": [
+        {
+          "type": "ALTERNATIVE",
+          "origin": "TLL",
+          "destination": "HEN",
+          "distance": 81922.767905472
+        },
+        {
+          "type": "ALTERNATIVE",
+          "origin": "HEN",
+          "destination": "HEL",
+          "distance": 18981.858630461
+        },
+        {
+          "type": "FLIGHT",
+          "origin": "HEL",
+          "destination": "TAY",
+          "distance": 244270.39073097
+        }
+      ],
+      "totalDistance": 345175.0172669
+    },
+    {
+      "segments": [
+        {
+          "type": "ALTERNATIVE",
+          "origin": "TLL",
+          "destination": "HEN",
+          "distance": 81922.767905472
+        },
+        {
+          "type": "ALTERNATIVE",
+          "origin": "HEN",
+          "destination": "HEL",
+          "distance": 18981.858630461
+        },
+        {
+          "type": "FLIGHT",
+          "origin": "HEL",
+          "destination": "TAY",
+          "distance": 244270.39073097
+        }
+      ],
+      "totalDistance": 345175.0172669
+    },
+    {
+      "segments": [
+        {
+          "type": "ALTERNATIVE",
+          "origin": "TLL",
+          "destination": "HEM",
+          "distance": 94386.935666986
+        },
+        {
+          "type": "ALTERNATIVE",
+          "origin": "HEM",
+          "destination": "HEL",
+          "distance": 8234.2516641968
+        },
+        {
+          "type": "FLIGHT",
+          "origin": "HEL",
+          "destination": "TAY",
+          "distance": 244270.39073097
+        }
+      ],
+      "totalDistance": 346891.57806215
+    },
+    {
+      "segments": [
+        {
+          "type": "ALTERNATIVE",
+          "origin": "TLL",
+          "destination": "HEM",
+          "distance": 94386.935666986
+        },
+        {
+          "type": "ALTERNATIVE",
+          "origin": "HEM",
+          "destination": "HEL",
+          "distance": 8234.2516641968
+        },
+        {
+          "type": "FLIGHT",
+          "origin": "HEL",
+          "destination": "TAY",
+          "distance": 244270.39073097
+        }
+      ],
+      "totalDistance": 346891.57806215
     }
   ]
 }
