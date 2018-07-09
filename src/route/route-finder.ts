@@ -15,6 +15,7 @@ export class RouteFinder {
                 return new RouteResponse(segments)
             })
             .catch((err) => {
+                console.error(err);
                 throw new Error(err);
             })
     }

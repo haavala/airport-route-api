@@ -4,8 +4,6 @@
   "description": "Airport route API",
   "main": "index.js",
   "scripts": {
-    "local-run-config" : "export NEO4J_HOST=localhost",
-    "local-start" : "npm run local-run-config && npm run start",
     "start": "npm run build && npm run serve",
     "build": "npm run build-ts",
     "serve": "node dist/index.js",
@@ -13,8 +11,8 @@
     "watch-test": "npm run test -- --watchAll",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
-    "search": "npm run local-run-config && npm run build-ts && node dist/scripts/search.js",
-    "calc-distances": "npm run local-run-config && npm run build-ts && node  dist/scripts/paths.js"
+    "search": "npm run build-ts && node dist/scripts/search.js",
+    "calc-distances": "npm run build-ts && node dist/scripts/paths.js"
   },
   "keywords": [
     "airports",
